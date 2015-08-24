@@ -1,0 +1,11 @@
+
+-content_for :top_bar_title do
+  ='Склады'
+
+-content_for :top_bar_links do
+  =link_to 'Создать', new_warehouse_path, class: 'button'
+
+.main-content
+  .row
+    -@warehouses.each do |o|
+      =render 'shared/article_card', object: o

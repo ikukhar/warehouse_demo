@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Warehouse Demo" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+    <div class="off-canvas-wrap move-right" data-offcanvas>
+      <div class="inner-wrap">
+        <a class="left-off-canvas-toggle" href="#"><i class="fi-list"></i></a>
+
+        <!-- Off Canvas Menu -->
+        <aside class="left-off-canvas-menu">
+          <div class="icon-bar vertical icon-bar vertical fix">
+            <a class="item" href=<%= warehouses_path %>>
+              <i class="fi-home"></i>
+              <label>Склады</label>
+            </a>
+
+            <a class="item" href="#">
+              <i class="fi-home"></i>
+              <label>Товары</label>
+           </a>
+         </div>
+        </aside>
+
+        <%= render 'shared/top_bar' %>
+
+        <%= breadcrumbs separator: " &rsaquo; " %>
+
+        <%= yield %>
+
+        <a class="exit-off-canvas"></a>
+      </div>
+    </div>
+ 
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+
+-content_for :top_bar_title do
+  =@sector
+
+.main-content
+  .row
+    .medium-6.large-4.columns
+      =simple_form_for @sector, html: {id: :edit_sector} do |f|
+        =f.input :number, label: 'Номер', as: :integer
+        =f.association :warehouse
+        %p
+          =link_to 'Сохранить', "#", class:'button tiny success',
+                                     onclick: "$('#edit_sector').submit()"
+          =link_to 'Отмена', :back,  class: 'button tiny secondary'

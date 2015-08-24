@@ -1,0 +1,13 @@
+
+-content_for :top_bar_title do
+  ="Секторы"
+
+-content_for :top_bar_links do
+  =link_to 'Создать', new_sector_path, class: 'button'
+
+-breadcrumb :warehouse, @warehouse
+
+.main-content
+  .row
+    -@warehouse.sectors.each do |o|
+      =render 'shared/article_card', object: o

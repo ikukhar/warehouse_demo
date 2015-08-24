@@ -1,0 +1,6 @@
+
+=render 'shared/top_bar', title_area: 'Ячейки', path: new_cell_path 
+
+.row
+  -@cells.each do |o|
+    =render 'shared/article_card', object: o

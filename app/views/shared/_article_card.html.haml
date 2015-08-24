@@ -1,0 +1,15 @@
+
+-model_name = object.class.to_s.underscore
+
+.medium-6.large-4.columns
+  %article.article-card
+    .card-content
+      %img.post-icon{src: "http://zurb.com/stickers/images/intro-foundation.png", alt:"foundation icon"}
+      .post-title
+        %h4= link_to object, object
+      %p If my answers..
+      .card-row
+        = link_to "Изменить", send("edit_#{model_name}_path",    object), class:"button tiny secondary"
+        = link_to "Удалить",  send("#{model_name}_path", object), class:"button tiny secondary",
+                                                                  method: :delete,
+                                                                  data: {confirm: 'Are you sure?'}

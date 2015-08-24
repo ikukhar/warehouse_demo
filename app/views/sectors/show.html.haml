@@ -1,0 +1,13 @@
+
+-content_for :top_bar_title do
+  ="Ячейки"
+
+-content_for :top_bar_links do
+  =link_to 'Создать', new_cell_path, class: 'button'
+
+-breadcrumb :sector, @sector
+
+.main-content
+  .row
+    -@sector.cells.each do |o|
+      =render 'shared/article_card', object: o

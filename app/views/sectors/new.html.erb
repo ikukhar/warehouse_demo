@@ -1,0 +1,8 @@
+<h1>Создание нового сектора</h1>
+<%= simple_form_for @sector do |f| %>
+  <%= f.input :number %>
+  <%= f.association :warehouse %>
+  <p>
+    <%= f.submit 'Создать' %>
+  </p>
+<% end %>
