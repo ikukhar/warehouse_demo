@@ -1,0 +1,11 @@
+ru:
+  simple_form:
+    labels:
+      warehouse:
+        number: 'Номер'
+      sector:
+        number: 'Номер'
+        warehouse: 'Склад'
+      cell:
+        number: 'Номер'
+        sector: 'Сектор'

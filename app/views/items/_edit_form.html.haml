@@ -2,9 +2,10 @@
 .main-content
   .row
     .medium-6.large-4.columns
-      =simple_form_for @warehouse, validation: true, html: {id: :edit_warehouse} do |f|
+      =simple_form_for @sector, validation: true, html: {id: :edit_sector} do |f|
         =f.input :number, label: 'Номер', as: :integer
+        =f.association :warehouse
         %p
           =link_to 'Сохранить', "#", class:'button tiny success',
-                                     onclick: "$('#edit_warehouse').submit()"
+                                     onclick: "$('#edit_sector').submit()"
           =link_to 'Отмена', :back,  class: 'button tiny secondary'

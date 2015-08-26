@@ -1,19 +1,17 @@
 class SectorsController < ApplicationController
 
-  before_action :set_constants
-  before_action :find_sector, only: [:show, :edit, :update]
-  
+  before_action :find_sector, only: [:show, :edit, :update, :destroy]
+
   def index
     @sectors = Sector.all
   end
 
   def new
-    @sector = Sector.new
-    @warehouses = Warehouse.all
+    @sector = Sector.new(warehouse_id: params[:warehouse_id])
   end
 
   def create
-    @sector = Sector.create(sector_params)
+    @sector = Sector.create(create_params)
     if @sector.errors.empty?
       redirect_to @sector
     else
@@ -28,7 +26,7 @@ class SectorsController < ApplicationController
   end
 
   def update
-    @sector.update(sector_params)
+    @sector.update(create_params)
     if @sector.errors.empty?
       redirect_to @sector
     else
@@ -36,19 +34,19 @@ class SectorsController < ApplicationController
     end
   end
 
+  def destroy
+    @sector.destroy
+    redirect_to @sector.warehouse
+  end
+
   private
 
-  def sector_params
+  def create_params
     params.require(:sector).permit(:number, :warehouse_id)
   end
 
   def find_sector
     @sector = Sector.find(params[:id])
-  end
-
-  def set_constants
-    @top_bar_title = 'Секторы'
-    @new_path = new_sector_path
   end
 
 end

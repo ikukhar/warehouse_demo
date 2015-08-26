@@ -1,6 +1,5 @@
 class WarehousesController < ApplicationController
 
-  before_action :set_constants
   before_action :find_warehouse, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -50,8 +49,4 @@ class WarehousesController < ApplicationController
     @warehouse = Warehouse.find(params[:id])
   end
 
-  def set_constants
-    @top_bar_title = 'Склады'
-    @new_path = new_warehouse_path
-  end
 end

@@ -7,5 +7,5 @@
 
 .main-content
   .row
-    -@warehouses.each do |o|
-      =render 'shared/article_card', object: o
+    -@warehouses.each do |warehouse|
+      =render 'shared/article_card', object: warehouse

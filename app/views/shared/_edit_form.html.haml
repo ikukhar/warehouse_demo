@@ -1,0 +1,12 @@
+
+-model_name = object.class.to_s.underscore
+
+.main-content
+  .row
+    .medium-6.large-4.columns
+      =simple_form_for object, validation: true, html: {id: :"edit_#{model_name}"} do |f|
+        =f.input :number
+        %p
+          =link_to 'Сохранить', "#", class:'button tiny success',
+                                     onclick: "$('#edit_#{model_name}').submit()"
+          =link_to 'Отмена', :back,  class: 'button tiny secondary'
