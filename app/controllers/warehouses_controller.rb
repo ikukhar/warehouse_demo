@@ -13,9 +13,9 @@ class WarehousesController < ApplicationController
   def create
     @warehouse = Warehouse.create(warehouse_params)
     if @warehouse.errors.empty?
-      redirect_to @warehouse
+      #redirect_to @warehouse
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -30,7 +30,7 @@ class WarehousesController < ApplicationController
     if @warehouse.errors.empty?
       redirect_to @warehouse
     else
-      render 'edit'
+      render :edit
     end
   end
 

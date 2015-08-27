@@ -39,7 +39,10 @@ ActiveRecord::Schema.define(version: 20150817182031) do
 
   add_index "sectors", ["warehouse_id"], name: "index_sectors_on_warehouse_id"
 
-# Could not dump table "warehouses" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "warehouses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "number"
+  end
 
 end

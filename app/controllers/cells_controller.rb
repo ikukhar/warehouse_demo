@@ -1,43 +1,59 @@
 class CellsController < ApplicationController
+
+  before_action :find_cell, only: [:show, :edit, :update, :destroy]
+
   def index
-    @cells = Cell.all.order(:number)
+    @cells = Cell.all
   end
 
   def new
-    @cell = Cell.new
-    @sectors = Sector.all.order(:number)
+    @cell = Cell.new(sector_id: params[:sector_id])
   end
 
   def create
-    @cell = Cell.create(cell_params)
+    print create_params
+    @cell = Cell.create(create_params)
     if @cell.errors.empty?
       redirect_to @cell
     else
-      render 'new'
+      render :new
     end
   end
 
   def show
-    @cell = Cell.find(params[:id])
   end
 
   def edit
-    @cell = Cell.find(params[:id])
   end
 
   def update
-    @cell = Cell.find(params[:id])
-    @cell.update(cell_params)
+    @cell.update(update_params)
     if @cell.errors.empty?
       redirect_to @cell
     else
-      render 'edit'
+      render :edit
     end
+  end
+
+  def destroy
+    @cell.destroy
+    redirect_to @cell.sector
   end
 
   private
 
-  def cell_params
-    params.require(:cell).permit(:number)
+  def create_params
+    cell_attr = params.require(:cell).permit(:number)
+    cell_attr[:sector_id] = params.require(:sector_id)
+    cell_attr
   end
+
+  def update_params
+    cell_attr = params.require(:cell).permit(:number)
+  end
+
+  def find_cell
+    @cell = Cell.find(params[:id])
+  end
+
 end

@@ -3,7 +3,7 @@
   ="Ячейки"
 
 -content_for :top_bar_links do
-  =link_to 'Создать', new_cell_path, class: 'button'
+  =link_to 'Создать', new_sector_cell_path(@sector), class: 'button'
 
 -breadcrumb :sector, @sector
 

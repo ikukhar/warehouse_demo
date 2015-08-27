@@ -2,10 +2,6 @@ class SectorsController < ApplicationController
 
   before_action :find_sector, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @sectors = Sector.all
-  end
-
   def new
     @sector = Sector.new(warehouse_id: params[:warehouse_id])
   end
@@ -15,7 +11,7 @@ class SectorsController < ApplicationController
     if @sector.errors.empty?
       redirect_to @sector
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -26,11 +22,11 @@ class SectorsController < ApplicationController
   end
 
   def update
-    @sector.update(create_params)
+    @sector.update(update_params)
     if @sector.errors.empty?
       redirect_to @sector
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -42,7 +38,13 @@ class SectorsController < ApplicationController
   private
 
   def create_params
-    params.require(:sector).permit(:number, :warehouse_id)
+    sector_attr = params.require(:sector).permit(:number)
+    sector_attr[:warehouse_id] = params.require(:warehouse_id)
+    sector_attr
+  end
+  
+  def update_params
+    sector_attr = params.require(:sector).permit(:number)
   end
 
   def find_sector

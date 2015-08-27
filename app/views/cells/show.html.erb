@@ -1,9 +1,0 @@
-<%= link_to 'Все ячейки', cells_path %>
-<h1><%= @cell %></h1>
-<p>
-  <%= link_to 'Изменить', edit_cell_path(@cell) %>
-  <%= link_to 'Удалить',  cell_path(@cell), method: :delete %>
-</p>
-<p>
-<div><%= link_to @cell.sector, @cell.sector %></div>
-</p>
