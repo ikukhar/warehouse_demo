@@ -1,0 +1,25 @@
+
+.medium-6.large-4.columns
+  %form.form
+    -if item.foto_url
+      %img{src: item.foto_url}
+    .form-content
+
+      %h5= item.name
+      %h6= "Кво: #{item.count}"
+
+      .progress
+        //red. orange, green
+        %span.meter.blue{style: "width:65%"}
+          %p.percent 65%
+
+      %p
+        - c = item.cell
+        - s = c.sector
+        - w = s.warehouse
+        = link_to(w,w) + " > " +  link_to(s,s) + " > " + link_to(c,c)
+      .form-row
+        = link_to "Изменить", edit_item_path(item), class:"button tiny secondary"
+        = link_to "Удалить",  item, class:"button tiny secondary",
+                                    method: :delete,
+                                    data: {confirm: 'Are you sure?'}

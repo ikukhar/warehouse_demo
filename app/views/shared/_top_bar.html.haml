@@ -4,9 +4,21 @@
     %ul.title-area
       .name
         %h2=yield :top_bar_title
-  
-  -if content_for :top_bar_links 
+
+  -if content_for :top_bar_links
     %section.top-bar-section
       %ul.left
         %li
           =yield :top_bar_links
+
+
+  %section.top-bar-section
+    %ul.right
+      %li.has-form
+        .row.collapse
+          .large-8.small-9.columns
+            %input{type: "text", placeholder: "Find Stuff"}
+          .large-4.small-3.columns
+            %a.alert.button.expand Найти
+        %li
+          %a Войти

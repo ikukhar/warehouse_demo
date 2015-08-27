@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817182031) do
+ActiveRecord::Schema.define(version: 20150827163145) do
 
   create_table "cells", force: :cascade do |t|
     t.integer  "number"
@@ -28,7 +28,11 @@ ActiveRecord::Schema.define(version: 20150817182031) do
     t.integer  "max_cell_count"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "cell_id"
+    t.string   "foto_url"
   end
+
+  add_index "items", ["cell_id"], name: "index_items_on_cell_id"
 
   create_table "sectors", force: :cascade do |t|
     t.integer  "number"

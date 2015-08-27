@@ -1,15 +1,15 @@
-.article-card {
+.form {
   border: 1px solid #d7d7d7;
   margin-bottom: 1.5rem;
   box-shadow: 2px 4px 5px 0px #d7d7d7; 
 }
 
-.article-card .card-content {
+.form .form-content {
   background: #fff;
   margin: 1.25rem; 
 }
 
-.card-row {
+.form-row {
   margin: 1.25rem -0.4rem;
   text-align: center;
  }
@@ -18,16 +18,16 @@
   text-align: center;
 }
 
-.article-card .card-content h4 {
+.form .form-content h4 {
   color: #CF000F; 
 }
 
-.article-card .card-content p {
+.form .form-content h6 {
   color: #757D75; 
   padding-top: 1.25rem;
 }
 
-.article-card .card-content a i {
+.form .form-content a i {
   font-weight: 300;
   color: #757D75;
   margin: 0 .5rem;
@@ -36,9 +36,13 @@
   border-radius: 50%; 
 }
 
-.article-card .card-content img.post-icon {
+.form .form-content i {
   position: absolute;
   width: 3rem;
   border-radius: 50%;
   margin-top: -0.5rem; 
+}
+
+i.large {
+  font-size: 28px;
 }

@@ -2,16 +2,11 @@ class CellsController < ApplicationController
 
   before_action :find_cell, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @cells = Cell.all
-  end
-
   def new
     @cell = Cell.new(sector_id: params[:sector_id])
   end
 
   def create
-    print create_params
     @cell = Cell.create(create_params)
     if @cell.errors.empty?
       redirect_to @cell

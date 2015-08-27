@@ -2,10 +2,14 @@
 .main-content
   .row
     .medium-6.large-4.columns
-      =simple_form_for @sector, validation: true, html: {id: :edit_sector} do |f|
-        =f.input :number, label: 'Номер', as: :integer
-        =f.association :warehouse
+      =simple_form_for object,  html: {id: :"edit_form"} do |f|
+        =f.input :name
+        =f.input :foto_url
+        =f.input :max_cell_count
+        =f.input :count
+        -if object[0].nil?
+          =f.association :cell
         %p
-          =link_to 'Сохранить', "#", class:'button tiny success',
-                                     onclick: "$('#edit_sector').submit()"
+          =link_to 'Сохранить', "", class:'button tiny success',
+                                     onclick: "$('#edit_form').submit()"
           =link_to 'Отмена', :back,  class: 'button tiny secondary'

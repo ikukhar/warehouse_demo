@@ -1,42 +1,58 @@
 class ItemsController < ApplicationController
+
+  before_action :find_item, only: [:show, :edit, :update, :destroy]
+
   def index
     @items = Item.all
   end
 
   def new
-    @item = Item.new
+    @item = Item.new(cell_id: params[:cell_id])
   end
 
   def create
-    @item = Item.create(item_params)
+    @item = Item.create(create_params)
     if @item.errors.empty?
-      redirect_to @item
+      redirect_to @item.cell
     else
-      render 'new'
+      render :new
     end
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.update(item_params)
+    @item.update(update_params)
     if @item.errors.empty?
-      redirect_to @item
+      redirect_to @item.cell
     else
-      render 'edit'
+      render :edit
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to @item.cell
   end
 
   private
 
-  def item_params
-    params.require(:item).permit(:name, :count, :max_cell_count)
+  def create_params
+    item_attr = params.require(:item).permit(:name, :foto_url, :count, :max_cell_count)
+    item_attr[:cell_id] = params.require(:cell_id)
+    item_attr
   end
+
+  def update_params
+    item_attr = params.require(:item).permit(:number)
+  end
+
+  def find_item
+    @item = Item.find(params[:id])
+  end
+
 end

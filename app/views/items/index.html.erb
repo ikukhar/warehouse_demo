@@ -1,8 +1,0 @@
-<h1> Товары </h1>
-<ul>
-  <% @items.each do |i| %>
-    <li><%= link_to i.name, i %></li>
-  <% end %>
-</ul>
-<br>
-<%= link_to 'Создать', new_item_path %>

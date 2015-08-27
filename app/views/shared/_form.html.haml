@@ -1,13 +1,19 @@
 -model_name = object.class.to_s.underscore
 
 .medium-6.large-4.columns
-  %article.article-card
-    .card-content
-      %i.fi-wrench
+  %form.form
+    .form-content
+      -case model_name
+        -when 'warehouse' 
+          %i.fi-home.large
+        -when 'sector'
+          %i.fi-list.large
+        -when 'cell'
+          %i.fi-thumbnails.large
+
       .post-title
         %h4= link_to object, object
-      %p If my answers..
-      .card-row
+      .form-row
         = link_to "Изменить", send("edit_#{model_name}_path", object), class:"button tiny secondary"
         = link_to "Удалить",  send("#{model_name}_path", object), class:"button tiny secondary",
                                                                     method: :delete,

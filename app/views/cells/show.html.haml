@@ -2,12 +2,12 @@
 -content_for :top_bar_title do
   =@cell
 
-//-content_for :top_bar_links do
-//  =link_to 'Создать', new_sector_cell_path(@sector), class: 'button'
+-content_for :top_bar_links do
+  =link_to 'Создать', new_cell_item_path(@cell), class: 'button'
 
 -breadcrumb :cell, @cell
 
-.main-content
-  .row
-    //-@sector.cells.each do |o|
-    //  =render 'shared/article_card', object: o
+-if @cell.item
+  .main-content
+    .row
+      =render 'items/form', item: @cell.item

@@ -9,3 +9,8 @@ ru:
       cell:
         number: 'Номер'
         sector: 'Сектор'
+      item:
+        name: 'Название'
+        foto_url: 'Фото url'
+        count: 'Кво'
+        max_cell_count: 'Макс. кво в ячейке'

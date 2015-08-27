@@ -1,5 +1,6 @@
 class Cell < ActiveRecord::Base
   belongs_to :sector
+  has_one    :item
   default_scope {order :number}
 
   validates :number, numericality: { greater_than: 0 }
