@@ -16,6 +16,7 @@ class SectorsController < ApplicationController
   end
 
   def show
+    @cells = Cell.where("sector_id = ?", @sector).search(params[:search])
   end
 
   def edit
@@ -38,13 +39,13 @@ class SectorsController < ApplicationController
   private
 
   def create_params
-    sector_attr = params.require(:sector).permit(:number)
+    sector_attr = update_params
     sector_attr[:warehouse_id] = params.require(:warehouse_id)
     sector_attr
   end
   
   def update_params
-    sector_attr = params.require(:sector).permit(:number)
+    params.require(:sector).permit(:number)
   end
 
   def find_sector

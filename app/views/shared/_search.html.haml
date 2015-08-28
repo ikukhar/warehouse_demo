@@ -1,0 +1,7 @@
+
+=form_tag data[:path], method: 'get' do
+  .row.collapse
+    .large-8.small-9.columns
+      =text_field_tag :search, params[:search], placeholder: data[:placeholder]
+    .large-4.small-3.columns
+      =submit_tag "Поиск", class: 'button alert'

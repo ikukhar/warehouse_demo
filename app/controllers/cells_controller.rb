@@ -38,13 +38,13 @@ class CellsController < ApplicationController
   private
 
   def create_params
-    cell_attr = params.require(:cell).permit(:number)
+    cell_attr = update_params
     cell_attr[:sector_id] = params.require(:sector_id)
     cell_attr
   end
 
   def update_params
-    cell_attr = params.require(:cell).permit(:number)
+    params.require(:cell).permit(:number)
   end
 
   def find_cell

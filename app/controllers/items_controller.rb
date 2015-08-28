@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.search(params[:search])
   end
 
   def new
@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(create_params)
     if @item.errors.empty?
-      redirect_to @item.cell
+      redirect_to cell_path(@item.cell)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   def update
     @item.update(update_params)
     if @item.errors.empty?
-      redirect_to @item.cell
+      redirect_to cell_path(@item.cell)
     else
       render :edit
     end
@@ -42,13 +42,13 @@ class ItemsController < ApplicationController
   private
 
   def create_params
-    item_attr = params.require(:item).permit(:name, :foto_url, :count, :max_cell_count)
+    item_attr = update_params
     item_attr[:cell_id] = params.require(:cell_id)
     item_attr
   end
 
   def update_params
-    item_attr = params.require(:item).permit(:number)
+    params.require(:item).permit(:name, :foto_url, :count, :max_cell_count)
   end
 
   def find_item

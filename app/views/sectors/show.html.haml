@@ -5,9 +5,12 @@
 -content_for :top_bar_links do
   =link_to 'Создать', new_sector_cell_path(@sector), class: 'button'
 
+-content_for :top_bar_search do
+  =render 'shared/search', data: {path: sector_path(@sector), placeholder: 'Номер ячейки'}
+
 -breadcrumb :sector, @sector
 
 .main-content
   .row
-    -@sector.cells.each do |o|
+    -@cells.each do |o|
       =render 'shared/form', object: o

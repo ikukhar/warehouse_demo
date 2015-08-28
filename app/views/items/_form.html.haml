@@ -6,14 +6,14 @@
     .form-content
 
       %h5= item.name
-      %h6= "Кво: #{item.count}"
 
       .progress
-        //red. orange, green
-        %span.meter.blue{style: "width:65%"}
-          %p.percent 65%
+        -count_percent = count_percent(item)
+        %span{class: "meter #{percent_color(count_percent)}", style: "width:#{count_percent}%"}
+          ="#{count_percent}%"
 
-      %p
+      %h6= "Кво: #{item.count}"
+      %p.post-title
         - c = item.cell
         - s = c.sector
         - w = s.warehouse

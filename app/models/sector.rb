@@ -1,4 +1,5 @@
 class Sector < ActiveRecord::Base
+
   belongs_to :warehouse
   has_many   :cells
   default_scope {order :number}
@@ -10,4 +11,13 @@ class Sector < ActiveRecord::Base
   def to_s
     "Сектор №#{self.number}"
   end
+
+  def self.search(search)
+    if search && (not search.empty?)
+      where('number = ?', "#{search}")
+    else
+      all
+    end
+  end
+
 end

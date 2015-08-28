@@ -3,7 +3,7 @@ class WarehousesController < ApplicationController
   before_action :find_warehouse, only: [:show, :edit, :update, :destroy]
 
   def index
-    @warehouses = Warehouse.all
+    @warehouses = Warehouse.search(params[:search])
   end
 
   def new
@@ -20,6 +20,7 @@ class WarehousesController < ApplicationController
   end
 
   def show
+    @sectors = Sector.where("warehouse_id = ?", @warehouse).search(params[:search])
   end
 
   def edit

@@ -18,13 +18,16 @@
   text-align: center;
 }
 
+p.post-title {
+  font-size: 0.88rem;
+}
+
 .form .form-content h4 {
   color: #CF000F; 
 }
 
 .form .form-content h6 {
   color: #757D75; 
-  padding-top: 1.25rem;
 }
 
 .form .form-content a i {
@@ -46,3 +49,30 @@
 i.large {
   font-size: 28px;
 }
+
+span.meter.blue {
+  background: cornflowerblue; 
+}
+
+span.meter.red {
+  background: #e74c3c;
+}
+
+span.meter.orange {
+  background: #e67e22; 
+}
+
+span.meter.green {
+  background: #2ecc71; 
+}
+
+span.meter.purple {
+  background: #9b59b6; 
+}
+
+.progress span {
+  font-size: small;
+  color: #757075;
+  text-align: center;
+}
+
