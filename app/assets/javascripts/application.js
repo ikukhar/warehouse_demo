@@ -18,6 +18,7 @@
 //= require react
 //= require react_ujs
 //= require off-canvas-menu
+//= require dynamic_selector
 
 $(function(){ $(document).foundation(); });
 

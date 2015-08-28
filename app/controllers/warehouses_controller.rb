@@ -13,7 +13,7 @@ class WarehousesController < ApplicationController
   def create
     @warehouse = Warehouse.create(warehouse_params)
     if @warehouse.errors.empty?
-      #redirect_to @warehouse
+      redirect_to @warehouse
     else
       render :new
     end
@@ -21,6 +21,11 @@ class WarehousesController < ApplicationController
 
   def show
     @sectors = Sector.where("warehouse_id = ?", @warehouse).search(params[:search])
+
+    respond_to do |format|
+      format.json { render :json => @sectors }
+      format.html { render :show }
+    end
   end
 
   def edit

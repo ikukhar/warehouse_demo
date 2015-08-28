@@ -70,9 +70,13 @@ span.meter.purple {
   background: #9b59b6; 
 }
 
-.progress span {
+.progress div.center {
   font-size: small;
   color: #757075;
   text-align: center;
+  margin-top: -1.2rem;
 }
 
+.medium-6.large-4.columns.left {
+  float: none;
+}

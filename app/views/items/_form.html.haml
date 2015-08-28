@@ -1,5 +1,5 @@
 
-.medium-6.large-4.columns
+.medium-6.large-4.columns.left
   %form.form
     -if item.foto_url
       %img{src: item.foto_url}
@@ -10,7 +10,7 @@
       .progress
         -count_percent = count_percent(item)
         %span{class: "meter #{percent_color(count_percent)}", style: "width:#{count_percent}%"}
-          ="#{count_percent}%"
+        .center="#{count_percent}%"
 
       %h6= "Кво: #{item.count}"
       %p.post-title

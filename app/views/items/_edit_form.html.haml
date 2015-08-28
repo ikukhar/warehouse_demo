@@ -7,8 +7,12 @@
         =f.input :foto_url
         =f.input :max_cell_count
         =f.input :count
-        -if object[0].nil?
-          =f.association :cell
+        -ws = Warehouse.all
+        =select_tag "dynamic_warehouse_id", options_from_collection_for_select(ws, "id", "to_s")
+        -ss = Sector.where(warehouse: ws[1])
+        =select_tag "dynamic_sector_id", options_from_collection_for_select(ss, "id", "to_s")
+        -cc = Cell.where(sector: ss[1])
+        =select_tag "dynamic_cell_id", options_from_collection_for_select(cc, "id", "to_s")
         %p
           =link_to 'Сохранить', "", class:'button tiny success',
                                      onclick: "$('#edit_form').submit()"
