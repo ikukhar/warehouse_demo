@@ -43,16 +43,16 @@ create_item 'Свеча зажигания 406дв HERZOG (к-т)',
 
 create_item 'Масло SHELL Helix HX7 10W40 полусинтетика 4л',
             'https://detali.zp.ua/uploads/photo/big/2014_09/2014_09_06_I9G_144234.jpg',
-            cells[3]
+            cells[2]
 
 create_item 'Крышка радиатора 2401, 2410, 31029 ОАО ГАЗ (пробка)',
             'https://detali.zp.ua/uploads/photo/big/2014_06/2014_06_02_I6G_103235.jpg',
-            cells[4]
+            cells[3]
 
 create_item 'Бачок ГТЦ Ланос, Сенс GM',
             'https://detali.zp.ua/uploads/photo/big/2014_11/2014_11_06_I11G_145732.jpg',
-            cells[5]
+            cells[4]
 
 create_item 'Амортизатор Ланос FSO зад газ',
             'https://detali.zp.ua/uploads/photo/big/2014_06/2014_06_13_I6G_184118.jpg',
-            cells[6]
+            cells[5]
