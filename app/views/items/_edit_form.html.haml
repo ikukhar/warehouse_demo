@@ -2,17 +2,35 @@
 .main-content
   .row
     .medium-6.large-4.columns
-      =simple_form_for object,  html: {id: :"edit_form"} do |f|
+      =simple_form_for @item,  html: {id: :"edit_form"} do |f|
         =f.input :name
         =f.input :foto_url
         =f.input :max_cell_count
         =f.input :count
-        -ws = Warehouse.all
-        =select_tag "dynamic_warehouse_id", options_from_collection_for_select(ws, "id", "to_s")
-        -ss = Sector.where(warehouse: ws[1])
-        =select_tag "dynamic_sector_id", options_from_collection_for_select(ss, "id", "to_s")
-        -cc = Cell.where(sector: ss[1])
-        =select_tag "dynamic_cell_id", options_from_collection_for_select(cc, "id", "to_s")
+
+        =f.label 'Склад', class: "select required"
+
+        -if @item.cell.nil?
+          -options = options_from_collection_for_select(Warehouse.all, "id", "to_s")
+          =select_tag "item_cell_sector_warehouse_id", options, prompt: ''
+        -else
+          -options = options_from_collection_for_select(Warehouse.all, "id", "to_s", @item.cell.sector.warehouse.id)
+          =select_tag "item_cell_sector_warehouse_id", options, {prompt: ''}
+
+        =f.label 'Сектор', class: "select required"
+
+        -if @item.cell.nil?
+          -options = ''
+          =select_tag "item_cell_sector_id", options, disabled: true
+        -else
+          -options = options_from_collection_for_select(Sector.where(warehouse: @item.cell.sector.warehouse), "id", "to_s", @item.cell.sector.id)
+          =select_tag "item_cell_sector_id", options, {prompt: ''}
+
+        -if @item.cell.nil?
+          =f.association :cell, collection: [], disabled:true
+        -else
+          =f.association :cell, collection: Cell.where(sector: @item.cell.sector), selected: @item.cell.id
+
         %p
           =link_to 'Сохранить', "", class:'button tiny success',
                                      onclick: "$('#edit_form').submit()"

@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(create_params)
+    @item = Item.create(item_params)
     if @item.errors.empty?
       redirect_to cell_path(@item.cell)
     else
@@ -19,14 +19,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
   end
 
   def update
-    @item.update(update_params)
+    @item.update(item_params)
     if @item.errors.empty?
       redirect_to cell_path(@item.cell)
     else
@@ -41,14 +38,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def create_params
-    item_attr = update_params
-    item_attr[:cell_id] = params.require(:cell_id)
-    item_attr
-  end
-
-  def update_params
-    params.require(:item).permit(:name, :foto_url, :count, :max_cell_count)
+  def item_params
+    params.require(:item).permit(:name, :foto_url, :count, :max_cell_count, :cell_id)
   end
 
   def find_item

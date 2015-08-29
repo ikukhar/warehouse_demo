@@ -1,6 +1,6 @@
 class Warehouse < ActiveRecord::Base
 
-  has_many :sectors
+  has_many :sectors, dependent: :destroy
   default_scope { order :number}
 
   validates :number, numericality: { greater_than: 0 }

@@ -1,7 +1,7 @@
 class Sector < ActiveRecord::Base
 
   belongs_to :warehouse
-  has_many   :cells
+  has_many   :cells, dependent: :destroy
   default_scope {order :number}
 
   validates :number, numericality: { greater_than: 0 }

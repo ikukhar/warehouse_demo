@@ -2,4 +2,9 @@
 -content_for :top_bar_title do
   =@cell
 
+-content_for :top_bar_search do
+  =render 'shared/search', data: {path: sector_path(@cell.sector), placeholder: 'Номер ячейки'}
+
+-breadcrumb :sector, @cell.sector
+
 =render 'shared/edit_form', object: @cell

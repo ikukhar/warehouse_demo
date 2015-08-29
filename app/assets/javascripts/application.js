@@ -15,10 +15,8 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
-//= require react
-//= require react_ujs
 //= require off-canvas-menu
-//= require dynamic_selector
+//= require dynamic_select
 
 $(function(){ $(document).foundation(); });
 

@@ -3,6 +3,8 @@
   ='Новый сектор'
 
 -content_for :top_bar_search do
-  =render 'shared/search', data: {path: warehouse_sectors_path(@sector.warehouse), placeholder: 'Номер сектора'}
+  =render 'shared/search', data: {path: warehouse_path(@sector.warehouse), placeholder: 'Номер сектора'}
+
+-breadcrumb :warehouse, @sector.warehouse
 
 =render 'shared/edit_form', object: [@sector.warehouse,  @sector]

@@ -13,6 +13,8 @@
 
     <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 
+    <%= favicon_link_tag 'favicon.png' %>
+
   </head>
 
   <body>
@@ -37,7 +39,7 @@
         </aside>
 
         <%= render 'shared/top_bar' %>
-        <%= breadcrumbs separator: '' %>
+        <%= breadcrumbs separator: '', autoroot: true %>
 
         <%= yield %>
 

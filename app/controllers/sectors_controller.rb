@@ -17,6 +17,10 @@ class SectorsController < ApplicationController
 
   def show
     @cells = Cell.where("sector_id = ?", @sector).search(params[:search])
+    respond_to do |format|
+      format.json { render :json => @cells }
+      format.html { render :show }
+    end
   end
 
   def edit
