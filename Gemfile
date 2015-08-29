@@ -32,8 +32,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 #
 gem 'simple_form'
-gem 'react-rails', github: 'reactjs/react-rails'
-gem 'sprockets-coffee-react'
 gem 'haml'
 gem 'foundation-rails'
 gem 'gretel'

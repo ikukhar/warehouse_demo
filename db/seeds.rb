@@ -31,7 +31,7 @@ def create_item(name, foto_url, cell)
 
 end
 
-cells = Cell.all.unscoped.order("RANDOM()").limit(7)
+cells = Cell.all.unscoped.order("RANDOM()").limit(6)
 
 create_item 'Наконечник рулевой тяги Авео правый FSO',
             'https://detali.zp.ua/uploads/photo/big/2014_12/2014_12_18_I12G_170447.jpg',
@@ -40,10 +40,6 @@ create_item 'Наконечник рулевой тяги Авео правый 
 create_item 'Свеча зажигания 406дв HERZOG (к-т)',
             'https://detali.zp.ua/uploads/photo/big/2014_07/2014_07_19_I7G_101833.jpg',
             cells[1]
-
-create_item 'Фильтр масляный Ланос SCT',
-            'https://detali.zp.ua/uploads/photo/big/2014_07/2014_07_24_I7G_130621.jpg',
-            cells[2]
 
 create_item 'Масло SHELL Helix HX7 10W40 полусинтетика 4л',
             'https://detali.zp.ua/uploads/photo/big/2014_09/2014_09_06_I9G_144234.jpg',

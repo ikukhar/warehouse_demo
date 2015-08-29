@@ -1,5 +1,5 @@
 
-%nav.top-bar
+%nav.top-bar.data-topbar
   -if content_for? :top_bar_title
     %ul.title-area
       .name
@@ -10,7 +10,6 @@
       %ul.left
         %li
           =yield :top_bar_links
-
 
   %section.top-bar-section
     %ul.right
